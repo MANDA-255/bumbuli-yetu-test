@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-poppins text-text-base;
+  }
+
+  /* Mobile margin and padding reset */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-0;
+    }
+
+    .py-20 {
+      @apply py-0;
+    }
+
+    /* Reset padding and margin for all pages */
+    div[class*="page-"] {
+      @apply m-0 p-0;
+    }
+
+    /* Specific page containers */
+    .about-content,
+    .gallery-content,
+    .news-content,
+    .contact-content,
+    .tradition-content {
+      @apply m-0 p-0;
+    }
+
+    /* Mobile text size adjustments */
+    h1, .text-4xl, .text-5xl, .text-6xl {
+      @apply text-2xl;
+    }
+
+    h2, .text-3xl {
+      @apply text-xl;
+    }
+
+    h3, .text-2xl {
+      @apply text-lg;
+    }
+
+    p, .text-lg {
+      @apply text-sm;
+    }
+
+    /* Mobile button size adjustments */
+    .btn {
+      @apply px-4 py-2 text-sm;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-8 py-3 rounded-full font-medium transition-all duration-300 relative overflow-hidden;
+  }
+
+  .btn-primary {
+    @apply bg-green text-white hover:bg-green-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-white border-2 border-white hover:bg-white hover:text-green-dark;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-5;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-green-dark mb-5;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-green mb-5;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
